@@ -6,50 +6,125 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>Diabetes Prediction</title>
+    <style>
+      .container {
+        max-width: 65%;
+        margin: 0 auto;
+      }
+      .jumbotron {
+        background-color: #060417;
+        color: white;
+      }
+      .main_heading {
+        font-size: 3em;
+        font-weight: bold;
+        margin-bottom: 0;
+      }
+      .para {
+        text-align: center;
+        font-size: 1.4rem;
+        margin-bottom: auto;
+        margin-top: 1rem;
+      }
+      .instructions {
+        padding: 10px;
+        background-color: #060417;
+        border-radius: 5px;
+        font-size: 1rem;
+        margin-top: 0;
+      }
+      .form-horizontal {
+        padding: 1em;
+      }
+      .form-control {
+        width: 100%;
+        font-size: 1.2rem;
+        color: #fff;
+        background: #130f2a;
+        border-radius: 0.6rem;
+        border: 1.5px solid #6751b9;
+        padding: 1rem;
+      }
+      .button {
+        font-size: 1rem;
+        font-weight: 700;
+        color: #ffff;
+        border: 1.5px solid #a892fe;
+        border-radius: 0.6rem;
+        background: linear-gradient(90deg, #a892fe 0%, #8064e8 100%);
+        padding: 0.7rem;
+        transition: all 0.3s ease;
+      }
+      .result {
+        color: #ff0000;
+        font-size: 2rem;
+        margin: 2rem;
+      }
+      @media (max-width: 450px) {
+        .container {
+          max-width: 100%;
+        }
+        .jumbotron {
+          margin: 1rem;
+        }
+        .main_heading {
+          font-size: 2.3rem;
+          font-family: "Times New Roman", Times, serif;
+        }
+        .para {
+          font-size: 0.8rem;
+        }
+        .instructions {
+          margin-top: 0.5rem;
+          font-size: 0.7rem;
+        }
+        .form-horizontal {
+          padding: 0 2rem 0 0;
+        }
+        .form-control {
+          width: 100%;
+          font-size: 0.8rem;
+          color: #fff;
+          background: #130f2a;
+          border-radius: 0.6rem;
+          border: 1.5px solid #6751b9;
+          padding: 0.7rem;
+        }
+        .button {
+          font-size: 0.7rem;
+          font-weight: 700;
+          color: #ffff;
+          border: 1.5px solid #a892fe;
+          border-radius: 0.6rem;
+          background: linear-gradient(90deg, #a892fe 0%, #8064e8 100%);
+          padding: 0.4rem;
+          transition: all 0.3s ease;
+        }
+        .result {
+          color: #ff0000;
+          font-size: 1.5rem;
+          margin: 2rem 0 0 0;
+        }
+      }
+    </style>
   </head>
   <body style="background-color: #060417">
-    <div class="container main" style="max-width: 65%; margin: 0 auto">
-      <div
-        class="jumbotron"
-        id="holder"
-        style="
-          padding: 2em;
-          background-color: #060417;
-          color: white;
-          border-radius: 10px;
-        "
-      >
-        <br />
+    <div class="container">
+      <div class="jumbotron" id="holder">
         <center>
           <b>
-            <h2 style="color: #ff0000; font-size: 3rem; margin: 0">
-              {{ prediction_text}}
-            </h2>
+            <h2 class="result" style="">{{ prediction_text}}</h2>
           </b>
         </center>
         <center>
-          <h1
-            class="main_heading"
-            style="font-size: 4em; font-weight: bold; margin-bottom: 0"
-          >
-            Diabetes Prediction
-          </h1>
+          <h1 class="main_heading">Diabetes Prediction</h1>
         </center>
-        <p style="text-align: center; font-size: 1.8rem; margin-bottom: auto">
+        <p class="para">
           This Web Based Application is based on a Machine Learning Algorithm
           that predicts a patient's chance of having diabetes or not.
         </p>
-        <div
-          class="instructions"
-          style="
-            padding: 10px;
-            background-color: #060417;
-            border-radius: 5px;
-            font-size: 1.5rem;
-            margin-top: 0;
-          "
-        >
-          <h2>Instructions:</h2>
+        <div class="instructions">
+          <h2 style="margin: 0 auto">Instructions:</h2>
           <p>1. Please Enter values for the following fields</p>
           <p>2. Click predict</p>
         </div>
@@ -57,25 +132,15 @@
           class="form-horizontal"
           action="{{ url_for('predict')}}"
           method="post"
-          style="padding: 1em"
         >
           <div class="form-group" style="margin-bottom: 1em">
             <div class="col-sm-10" style="margin: 0 auto; width: 100%">
               <input
-                class="formcontrol"
+                class="form-control"
                 type="text"
                 name="Pregnancies"
                 placeholder="Pregancies"
                 required="required"
-                style="
-                  width: 100%;
-                  font-size: 1.5rem;
-                  color: #fff;
-                  background: #130f2a;
-                  border-radius: 0.6rem;
-                  border: 1.5px solid #6751b9;
-                  padding: 1rem;
-                "
               />
             </div>
           </div>
@@ -87,15 +152,6 @@
                 name="Glucose"
                 placeholder="Glucose"
                 required="required"
-                style="
-                  width: 100%;
-                  font-size: 1.5rem;
-                  color: #fff;
-                  background: #130f2a;
-                  border-radius: 0.6rem;
-                  border: 1.5px solid #6751b9;
-                  padding: 1rem;
-                "
               />
             </div>
           </div>
@@ -107,15 +163,6 @@
                 name="BloodPressure"
                 placeholder="Blood Pressure"
                 required="required"
-                style="
-                  width: 100%;
-                  font-size: 1.5rem;
-                  color: #fff;
-                  background: #130f2a;
-                  border-radius: 0.6rem;
-                  border: 1.5px solid #6751b9;
-                  padding: 1rem;
-                "
               />
             </div>
           </div>
@@ -127,15 +174,6 @@
                 name="SkinThickness"
                 placeholder="Skin Thickness"
                 required="required"
-                style="
-                  width: 100%;
-                  font-size: 1.5rem;
-                  color: #fff;
-                  background: #130f2a;
-                  border-radius: 0.6rem;
-                  border: 1.5px solid #6751b9;
-                  padding: 1rem;
-                "
               />
             </div>
           </div>
@@ -147,15 +185,6 @@
                 name="Insulin"
                 placeholder="Insulin"
                 required="required"
-                style="
-                  width: 100%;
-                  font-size: 1.5rem;
-                  color: #fff;
-                  background: #130f2a;
-                  border-radius: 0.6rem;
-                  border: 1.5px solid #6751b9;
-                  padding: 1rem;
-                "
               />
             </div>
           </div>
@@ -167,15 +196,6 @@
                 name="BMI"
                 placeholder="BMI"
                 required="required"
-                style="
-                  width: 100%;
-                  font-size: 1.5rem;
-                  color: #fff;
-                  background: #130f2a;
-                  border-radius: 0.6rem;
-                  border: 1.5px solid #6751b9;
-                  padding: 1rem;
-                "
               />
             </div>
           </div>
@@ -187,15 +207,6 @@
                 name="DiabetesPedigreeFunction"
                 placeholder="DiabetesPedigreeFunction"
                 required="required"
-                style="
-                  width: 100%;
-                  font-size: 1.5rem;
-                  color: #fff;
-                  background: #130f2a;
-                  border-radius: 0.6rem;
-                  border: 1.5px solid #6751b9;
-                  padding: 1rem;
-                "
               />
             </div>
           </div>
@@ -207,41 +218,13 @@
                 name="Age"
                 placeholder="Age"
                 required="required"
-                style="
-                  width: 100%;
-                  font-size: 1.5rem;
-                  color: #fff;
-                  background: #130f2a;
-                  border-radius: 0.6rem;
-                  border: 1.5px solid #6751b9;
-                  padding: 1rem;
-                "
               />
             </div>
           </div>
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
               <center>
-                <button
-                  type="submit"
-                  class="button btn btn-default"
-                  style="
-                    font-size: 1.3rem;
-                    font-weight: 700;
-                    color: #ffff;
-                    border: 1.5px solid #a892fe;
-                    border-radius: 0.6rem;
-                    background: linear-gradient(
-                      90deg,
-                      #a892fe 0%,
-                      #8064e8 100%
-                    );
-                    padding: 0.7rem;
-                    transition: all 0.3s ease;
-                  "
-                >
-                  PREDICT
-                </button>
+                <button type="submit" class="button" style="">PREDICT</button>
               </center>
             </div>
           </div>
