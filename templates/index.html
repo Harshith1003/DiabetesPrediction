@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>Diabetes Prediction</title>
+  </head>
+  <body style="background-color: #060417">
+    <div class="container main" style="max-width: 65%; margin: 0 auto">
+      <div
+        class="jumbotron"
+        id="holder"
+        style="
+          padding: 2em;
+          background-color: #060417;
+          color: white;
+          border-radius: 10px;
+        "
+      >
+        <br />
+        <center>
+          <b>
+            <h2 style="color: #ff0000; font-size: 3rem; margin: 0">
+              {{ prediction_text}}
+            </h2>
+          </b>
+        </center>
+        <center>
+          <h1
+            class="main_heading"
+            style="font-size: 4em; font-weight: bold; margin-bottom: 0"
+          >
+            Diabetes Prediction
+          </h1>
+        </center>
+        <p style="text-align: center; font-size: 1.8rem; margin-bottom: auto">
+          This Web Based Application is based on a Machine Learning Algorithm
+          that predicts a patient's chance of having diabetes or not.
+        </p>
+        <div
+          class="instructions"
+          style="
+            padding: 10px;
+            background-color: #060417;
+            border-radius: 5px;
+            font-size: 1.5rem;
+            margin-top: 0;
+          "
+        >
+          <h2>Instructions:</h2>
+          <p>1. Please Enter values for the following fields</p>
+          <p>2. Click predict</p>
+        </div>
+        <form
+          class="form-horizontal"
+          action="{{ url_for('predict')}}"
+          method="post"
+          style="padding: 1em"
+        >
+          <div class="form-group" style="margin-bottom: 1em">
+            <div class="col-sm-10" style="margin: 0 auto; width: 100%">
+              <input
+                class="formcontrol"
+                type="text"
+                name="Pregnancies"
+                placeholder="Pregancies"
+                required="required"
+                style="
+                  width: 100%;
+                  font-size: 1.5rem;
+                  color: #fff;
+                  background: #130f2a;
+                  border-radius: 0.6rem;
+                  border: 1.5px solid #6751b9;
+                  padding: 1rem;
+                "
+              />
+            </div>
+          </div>
+          <div class="form-group" style="margin-bottom: 1em">
+            <div class="col-sm-10" style="margin: 0 auto; width: 100%">
+              <input
+                class="form-control"
+                type="text"
+                name="Glucose"
+                placeholder="Glucose"
+                required="required"
+                style="
+                  width: 100%;
+                  font-size: 1.5rem;
+                  color: #fff;
+                  background: #130f2a;
+                  border-radius: 0.6rem;
+                  border: 1.5px solid #6751b9;
+                  padding: 1rem;
+                "
+              />
+            </div>
+          </div>
+          <div class="form-group" style="margin-bottom: 1em">
+            <div class="col-sm-10" style="margin: 0 auto; width: 100%">
+              <input
+                class="form-control"
+                type="text"
+                name="BloodPressure"
+                placeholder="Blood Pressure"
+                required="required"
+                style="
+                  width: 100%;
+                  font-size: 1.5rem;
+                  color: #fff;
+                  background: #130f2a;
+                  border-radius: 0.6rem;
+                  border: 1.5px solid #6751b9;
+                  padding: 1rem;
+                "
+              />
+            </div>
+          </div>
+          <div class="form-group" style="margin-bottom: 1em">
+            <div class="col-sm-10" style="margin: 0 auto; width: 100%">
+              <input
+                class="form-control"
+                type="text"
+                name="SkinThickness"
+                placeholder="Skin Thickness"
+                required="required"
+                style="
+                  width: 100%;
+                  font-size: 1.5rem;
+                  color: #fff;
+                  background: #130f2a;
+                  border-radius: 0.6rem;
+                  border: 1.5px solid #6751b9;
+                  padding: 1rem;
+                "
+              />
+            </div>
+          </div>
+          <div class="form-group" style="margin-bottom: 1em">
+            <div class="col-sm-10" style="margin: 0 auto; width: 100%">
+              <input
+                class="form-control"
+                type="text"
+                name="Insulin"
+                placeholder="Insulin"
+                required="required"
+                style="
+                  width: 100%;
+                  font-size: 1.5rem;
+                  color: #fff;
+                  background: #130f2a;
+                  border-radius: 0.6rem;
+                  border: 1.5px solid #6751b9;
+                  padding: 1rem;
+                "
+              />
+            </div>
+          </div>
+          <div class="form-group" style="margin-bottom: 1em">
+            <div class="col-sm-10" style="margin: 0 auto; width: 100%">
+              <input
+                class="form-control"
+                type="text"
+                name="BMI"
+                placeholder="BMI"
+                required="required"
+                style="
+                  width: 100%;
+                  font-size: 1.5rem;
+                  color: #fff;
+                  background: #130f2a;
+                  border-radius: 0.6rem;
+                  border: 1.5px solid #6751b9;
+                  padding: 1rem;
+                "
+              />
+            </div>
+          </div>
+          <div class="form-group" style="margin-bottom: 1em">
+            <div class="col-sm-10" style="margin: 0 auto; width: 100%">
+              <input
+                class="form-control"
+                type="text"
+                name="DiabetesPedigreeFunction"
+                placeholder="DiabetesPedigreeFunction"
+                required="required"
+                style="
+                  width: 100%;
+                  font-size: 1.5rem;
+                  color: #fff;
+                  background: #130f2a;
+                  border-radius: 0.6rem;
+                  border: 1.5px solid #6751b9;
+                  padding: 1rem;
+                "
+              />
+            </div>
+          </div>
+          <div class="form-group" style="margin-bottom: 1em">
+            <div class="col-sm-10" style="margin: 0 auto; width: 100%">
+              <input
+                class="form-control"
+                type="text"
+                name="Age"
+                placeholder="Age"
+                required="required"
+                style="
+                  width: 100%;
+                  font-size: 1.5rem;
+                  color: #fff;
+                  background: #130f2a;
+                  border-radius: 0.6rem;
+                  border: 1.5px solid #6751b9;
+                  padding: 1rem;
+                "
+              />
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <center>
+                <button
+                  type="submit"
+                  class="button btn btn-default"
+                  style="
+                    font-size: 1.3rem;
+                    font-weight: 700;
+                    color: #ffff;
+                    border: 1.5px solid #a892fe;
+                    border-radius: 0.6rem;
+                    background: linear-gradient(
+                      90deg,
+                      #a892fe 0%,
+                      #8064e8 100%
+                    );
+                    padding: 0.7rem;
+                    transition: all 0.3s ease;
+                  "
+                >
+                  PREDICT
+                </button>
+              </center>
+            </div>
+          </div>
+        </form>
+        <h2 class="result" style="text-align: center"></h2>
+      </div>
+    </div>
+  </body>
+</html>
