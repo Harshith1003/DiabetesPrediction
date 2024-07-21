@@ -13,12 +13,12 @@ The project's backend, powered by Flask, handles data processing, model training
 
 Enter the details of paitent here and click on predict to analysis teh paitent is diabets or not.
 
-![image](https://github.com/Harshith1003/DiabetesPredictionML/assets/119159671/0f7d8ee5-a064-47b9-9d8f-94032348625b)
+![image](https://github.com/user-attachments/assets/a5259e6a-7912-4aa4-ab5b-aabe3a70cbd9)
 
 **Result View**
 
 This view show the paitent is suffering with diabetes or not.
 
-![image](https://github.com/Harshith1003/DiabetesPredictionML/assets/119159671/45fdb3fd-2795-4bed-a549-077561ee8c21)
+![image](https://github.com/user-attachments/assets/96d0c436-6fe7-43af-ae56-ec7805a142cb)
 
-![image](https://github.com/Harshith1003/DiabetesPredictionML/assets/119159671/4c633b51-604e-443c-8026-c67000be716f)
+![image](https://github.com/user-attachments/assets/9859b5fa-cdc2-423c-8d33-04b6626833a5)
