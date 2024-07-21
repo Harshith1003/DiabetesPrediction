@@ -9,7 +9,13 @@ The main objective of this project is to develop a reliable machine learning mod
 **Technical Details**
 The project's backend, powered by Flask, handles data processing, model training, and prediction endpoints efficiently. The frontend, implemented with index.html, provides a user-friendly interface for inputting health data and obtaining predictions. Throughout the development process, I emphasized scalability, performance optimization, and adherence to best practices in machine learning and web development. This GitHub repository serves as a comprehensive resource for exploring the project's code, understanding its implementation details, and replicating the setup for further experimentation or application in similar predictive healthcare initiatives.
 
-**This is the Basic View**
+**This is the Basic Mobile View**
+
+Enter the details of paitent here and click on predict to analysis teh paitent is diabets or not.
+
+![WhatsApp Image 2024-07-21 at 16 17 08_1764cc68](https://github.com/user-attachments/assets/5d7665b5-d339-4a2d-a32b-349435b2c8f7)
+
+**This is the Basic Desktop View**
 
 Enter the details of paitent here and click on predict to analysis teh paitent is diabets or not.
 
